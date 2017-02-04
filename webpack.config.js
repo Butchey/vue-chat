@@ -6,7 +6,7 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'index.js'),
   // The compiled file goes to 'dist/bundle.js'
   output: {
-    path: './dist',
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   module: {

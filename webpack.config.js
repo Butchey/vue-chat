@@ -10,14 +10,13 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    // Special compilation rules
+    // Compilation settings
     loaders: [
       {
-        // Ask webpack to check: If this file ends with .js, then apply some transforms
+        // Check if file end in .js, then execute transforms
         test: path.join(__dirname, 'src'),
-        // Transform it with babel
+        // Babel transform
         loader: 'babel-loader',
-        // don't transform node_modules folder (which don't need to be compiled)
         presets: ['es2017']
       }
     ]

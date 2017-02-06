@@ -1,20 +1,13 @@
-'use strict';
-
-import Http from 'http';
 import SocketIO from 'socket.io';
+import Express from 'express';
 
+const app = new Express();
 
-let server = Http.Server(app);
+// Define the port to run on
+app.set('port', 3000);
 
-const requestHandler = (request, response) => {
-  
-}
-
-
-
-var io = require('socket.io')(server);
-io.on('connection', function(client){
-  client.on('event', function(data){});
-  client.on('disconnect', function(){});
+// Listen for requests
+const server = app.listen(app.get('port'), () => {
+  const port = server.address().port;
+  console.log(`Magic happens on port: ${port}`);
 });
-server.listen(3000);

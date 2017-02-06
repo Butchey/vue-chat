@@ -4,7 +4,9 @@
   "description": "A simple chat App build with VueJs, websockets and Node.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node dist/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "NODE_ENV=production node_modules/.bin/webpack -p --display-error-details"
   },
   "keywords": [
     "vue",
@@ -18,9 +20,17 @@
     "socket.io": "^1.7.2",
     "vue": "^2.1.10"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Butchey/vue-chat"
+  },
   "devDependencies": {
+    "babel-cli": "^6.22.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^6.2.10",
+    "babel-plugin-transform-es2015-template-literals": "^6.22.0",
+    "babel-preset-es2015": "^6.22.0",
+    "babel-preset-es2016": "^6.22.0",
     "babel-preset-es2017": "^6.22.0",
     "eslint": "^3.15.0",
     "eslint-config-airbnb-base": "^11.1.0",

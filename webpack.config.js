@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 let nodeModules = {};
 
 fs.readdirSync('node_modules')
@@ -34,16 +35,30 @@ module.exports = [
               presets: ['es2015', 'es2016', 'es2017'],
               plugins: ['transform-es2015-template-literals']
             }
-          }]
+          }],
+          exclude: /node_modules/
+        },
+        {
+          test: /\.html$/,
+          use: [{
+            loader: 'html-loader',
+          }],
+          exclude: /node_modules/
         },
         {
           // Before anything gets bundled, run eslint on all files in 'src'
-          test: path.join(__dirname, 'src'),
+          test: /\.js$/,
           loader: 'eslint-loader',
-          enforce: 'pre'
+          enforce: 'pre',
+          exclude: /node_modules/
         }
       ]
-    }
+    },
+    plugins: [new HtmlWebpackPlugin({
+      title: 'Vue-Chat',
+      template: path.join('client', 'index.html'),
+      filename: 'static/index.html'
+    })],
   },
   // Server Configuration
   {
@@ -67,11 +82,12 @@ module.exports = [
               presets: ['es2015', 'es2016', 'es2017'],
               plugins: ['transform-es2015-template-literals']
             }
-          }]
+          }],
+          exclude: /node_modules/
         },
         {
           // Before anything gets bundled, run eslint on all files in 'src'
-          test: path.join(__dirname, 'src'),
+          test: /\.js$/,
           loader: 'eslint-loader',
           enforce: 'pre'
         }

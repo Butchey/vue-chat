@@ -57,7 +57,7 @@ module.exports = [
     plugins: [new HtmlWebpackPlugin({
       title: 'Vue-Chat',
       template: path.join('client', 'index.html'),
-      filename: 'static/index.html'
+      filename: 'index.html'
     })],
   },
   // Server Configuration

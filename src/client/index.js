@@ -1,5 +1,5 @@
-// import Vue from 'vue';
+import Vue from 'vue';
 
-const x = 'Erdbeermarmelade';
-
-console.log('Mhm, lecker ${x}');
+window.app = new Vue({
+  el: 'body',
+});
